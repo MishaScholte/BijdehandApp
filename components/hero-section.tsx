@@ -59,7 +59,7 @@ export function HeroSection() {
                     <div className="relative w-full md:w-auto h-auto md:h-[874px] transition-all duration-500 flex items-start md:items-center justify-center">
                         <div className="relative w-full h-full flex items-center justify-center">
                             <picture>
-                                <source media="(max-width: 480px)" srcSet={HeroMobileSmall.src} />
+                                <source media="(max-width: 480px)" srcSet={`${HeroMobileSmall.src} 1x, ${HeroMobile.src} 2x`} />
                                 <source media="(max-width: 768px)" srcSet={HeroMobile.src} />
                                 <img
                                     src={HeroImage.src}
