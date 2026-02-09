@@ -108,7 +108,6 @@ export function USPSection() {
             icon: MapPin,
             iconBgClass: "bg-gradient-to-br from-purple-400 to-purple-600 border-white/20",
             iconColor: "text-white",
-            iconOverlay: <IconDesignGuide />,
         },
         {
             title: "Widgets & Wallet",
@@ -116,7 +115,6 @@ export function USPSection() {
             icon: Wallet,
             iconBgClass: "bg-gradient-to-br from-orange-400 to-orange-600 border-white/20",
             iconColor: "text-white",
-            iconOverlay: <IconDesignGuide />,
         },
     ];
 
