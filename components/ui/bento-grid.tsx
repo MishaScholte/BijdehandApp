@@ -100,7 +100,7 @@ export const BentoNumberCard = ({
     return (
         <div
             className={cn(
-                "row-span-1 rounded-xl shadow-input dark:shadow-none p-6 bg-white/5 border border-white/10 justify-start flex flex-col space-y-2 relative overflow-hidden text-left items-start",
+                "row-span-1 rounded-xl shadow-input dark:shadow-none p-6 bg-white/5 justify-start flex flex-col space-y-2 relative overflow-hidden text-left items-start",
                 className
             )}
         >
