@@ -47,6 +47,26 @@ const config: Config = {
                         transform: "translate(-50%,-40%) scale(1)",
                     },
                 },
+                "pulse-ring": {
+                    "0%": { transform: "scale(0.8)", opacity: "0.5" },
+                    "100%": { transform: "scale(2.5)", opacity: "0" },
+                },
+                "pulse-glow": {
+                    "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
+                    "50%": { opacity: "0.3", transform: "scale(1.1)" },
+                },
+                "pulse-scan": {
+                    "0%": { transform: "rotate(0deg)" },
+                    "100%": { transform: "rotate(360deg)" },
+                },
+            },
+            animation: {
+                shimmer: "shimmer 2s linear infinite",
+                spotlight: "spotlight 2s ease .75s 1 forwards",
+                "spin-gradient": "spin-gradient 5s linear infinite",
+                "pulse-ring": "pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+                "pulse-scan": "pulse-scan 4s linear infinite",
             },
         },
     },
