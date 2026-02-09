@@ -2,6 +2,41 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { ShieldUser, MapPin, Wallet, Check } from "lucide-react";
 
+const BlueprintGrid = () => {
+    return (
+        <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+                maskImage: "linear-gradient(to top right, transparent 10%, black 100%)",
+                WebkitMaskImage: "linear-gradient(to top right, transparent 10%, black 100%)",
+            }}
+        >
+            <svg
+                className="absolute inset-0 w-full h-full opacity-[0.1]"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <defs>
+                    <pattern
+                        id="blueprint-grid"
+                        width="32"
+                        height="32"
+                        patternUnits="userSpaceOnUse"
+                    >
+                        <path
+                            d="M0 32 V 0 H 32"
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="1"
+                            strokeOpacity="0.3"
+                        />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#blueprint-grid)" />
+            </svg>
+        </div>
+    );
+};
+
 interface KnockoutCardProps {
     title: string;
     description?: string | React.ReactNode;
@@ -9,6 +44,7 @@ interface KnockoutCardProps {
     iconBgClass?: string;
     iconColor?: string;
     className?: string;
+    background?: React.ReactNode;
 }
 
 const KnockoutCard = ({
@@ -18,29 +54,32 @@ const KnockoutCard = ({
     iconBgClass,
     iconColor,
     className,
+    background,
 }: KnockoutCardProps) => {
     return (
         <div
             className={cn(
-                "group relative flex flex-col items-start justify-start p-4 md:p-6 h-full",
+                "group relative flex flex-col items-start justify-start p-4 md:p-6 h-full overflow-hidden",
                 "bg-white/[0.03] rounded-[32px] md:rounded-[40px]",
                 "border border-white/10", // Subtle glassy border
                 "transition-all duration-200 hover:border-white/20 hover:bg-white/[0.02]",
                 className
             )}
         >
+            {background}
+
             {/* Icon */}
-            <div className={cn("mb-4 p-4 rounded-2xl border", iconBgClass)}>
+            <div className={cn("relative z-10 mb-4 p-4 rounded-2xl border", iconBgClass)}>
                 <Icon className={cn("w-6 h-6 md:w-10 md:h-10", iconColor || "text-neutral-200")} />
             </div>
 
             {/* Title */}
-            <h3 className="text-xl md:text-2xl font-bold text-white text-left mb-2">
+            <h3 className="relative z-10 text-xl md:text-2xl font-bold text-white text-left mb-2">
                 {title}
             </h3>
 
             {/* Description */}
-            <div className="text-neutral-400 text-sm md:text-base text-left font-normal">
+            <div className="relative z-10 text-neutral-400 text-sm md:text-base text-left font-normal">
                 {description}
             </div>
         </div>
@@ -64,6 +103,7 @@ export function USPSection() {
             icon: ShieldUser,
             iconBgClass: "bg-gradient-to-br from-blue-400 to-blue-600 border-white/20",
             iconColor: "text-white",
+            background: <BlueprintGrid />,
         },
         {
             title: "Slimme locaties",
@@ -93,6 +133,7 @@ export function USPSection() {
                             icon={feature.icon}
                             iconBgClass={feature.iconBgClass}
                             iconColor={feature.iconColor}
+                            background={feature.background}
                         />
                     ))}
                 </div>
