@@ -94,6 +94,49 @@ const TopographicGrid = () => {
     );
 };
 
+const PulseRing = () => {
+    return (
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none select-none">
+            <div className="absolute w-[150%] h-[150%] bg-purple-500/10 rounded-full animate-[pulse-ring_4s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20" />
+            <div className="absolute w-[100%] h-[100%] bg-purple-500/10 rounded-full animate-[pulse-ring_4s_cubic-bezier(0,0,0.2,1)_infinite_1s] opacity-20" />
+            <div className="absolute w-[50%] h-[50%] bg-purple-500/10 rounded-full animate-[pulse-ring_4s_cubic-bezier(0,0,0.2,1)_infinite_2s] opacity-20" />
+        </div>
+    );
+};
+
+const PulseGlowing = () => {
+    return (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <div
+                className="absolute inset-0 animate-pulse-glow"
+                style={{
+                    background: "radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%)",
+                }}
+            />
+        </div>
+    );
+};
+
+const PulseScan = () => {
+    return (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <div className="absolute inset-[-50%] animate-pulse-scan opacity-20">
+                <div
+                    className="w-full h-full"
+                    style={{
+                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(168, 85, 247, 0.1) 60deg, transparent 120deg)",
+                    }}
+                />
+            </div>
+            {/* Radar circles */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                <div className="absolute w-[80%] h-[80%] border border-purple-500 rounded-full" />
+                <div className="absolute w-[50%] h-[50%] border border-purple-500 rounded-full" />
+            </div>
+        </div>
+    );
+};
+
 const DotNetworkGrid = () => {
     return (
         <div
@@ -190,7 +233,7 @@ export function USPSection() {
             icon: ShieldUser,
             iconBgClass: "bg-gradient-to-br from-blue-400 to-blue-600 border-white/20",
             iconColor: "text-white",
-            background: <BlueprintGrid />,
+            background: <PulseRing />,
         },
         {
             title: "Slimme locaties",
@@ -198,7 +241,7 @@ export function USPSection() {
             icon: MapPin,
             iconBgClass: "bg-gradient-to-br from-purple-400 to-purple-600 border-white/20",
             iconColor: "text-white",
-            background: <TopographicGrid />,
+            background: <PulseGlowing />,
         },
         {
             title: "Widgets & Wallet",
@@ -206,7 +249,7 @@ export function USPSection() {
             icon: Wallet,
             iconBgClass: "bg-gradient-to-br from-orange-400 to-orange-600 border-white/20",
             iconColor: "text-white",
-            background: <DotNetworkGrid />,
+            background: <PulseScan />,
         },
     ];
 
