@@ -20,16 +20,16 @@ const KnockoutCard = ({
     return (
         <div
             className={cn(
-                "group relative flex flex-col items-start justify-center p-6 md:p-8",
-                "bg-black rounded-[48px]",
+                "group relative flex flex-col items-start justify-center p-4 md:p-6",
+                "bg-black rounded-[32px] md:rounded-[48px]",
                 "border border-white/10", // Subtle glassy border
                 "transition-all duration-200 hover:border-white/20 hover:bg-white/[0.02]",
                 className
             )}
         >
             {/* Icon */}
-            <div className={cn("mb-4 p-4 rounded-3xl border", iconBgClass)}>
-                <Icon className={cn("w-8 h-8 md:w-12 md:h-12", iconColor || "text-neutral-200")} />
+            <div className={cn("mb-4 p-4 rounded-2xl md:rounded-3xl border", iconBgClass)}>
+                <Icon className={cn("w-6 h-6 md:w-10 md:h-10", iconColor || "text-neutral-200")} />
             </div>
 
             {/* Title */}
