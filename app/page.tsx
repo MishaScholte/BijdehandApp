@@ -1,7 +1,7 @@
 
 import { HeroSection } from "@/components/hero-section";
 import { Footer } from "@/components/footer";
-import { BentoGrid, BentoGridItem, BentoFeatureCard } from "@/components/ui/bento-grid";
+import { BentoGrid, BentoGridItem, BentoFeatureCard, BentoNumberCard } from "@/components/ui/bento-grid";
 import {
   ShieldCheck,
   MapPin,
@@ -30,17 +30,11 @@ export default function Home() {
               className="md:col-span-2"
             />
 
-            {/* Card 2: No Ads (Number) */}
-            <BentoGridItem
-              title="Reclame & Accounts"
-              description="Gewoon je pasjes. Niets meer, niets minder. Geen afleiding."
-              header={
-                <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-800 items-center justify-center border border-white/5">
-                  <span className="text-6xl font-bold text-white">0</span>
-                </div>
-              }
+            {/* Card 2: 350+ Passes (Number Card Template) */}
+            <BentoNumberCard
+              number="350+"
+              label="ontworpen klantenpassen"
               className="md:col-span-1"
-              icon={<EyeOff className="h-4 w-4 text-neutral-500" />}
             />
 
             {/* Card 3: Smart Locations (Icon) */}
