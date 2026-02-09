@@ -55,11 +55,11 @@ const DotGridPattern = () => {
 
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
-            // Randomly select some dots to animate
-            const shouldAnimate = Math.random() < 0.1; // 10% chance
-            const delay = Math.random() * 3 + "s"; // Random delay up to 3s
+            // Randomly select some dots to animate - very few for calm effect
+            const shouldAnimate = Math.random() < 0.02; // 2% chance (~8 dots out of 400)
+            const delay = Math.random() * 10 + "s"; // Random delay up to 10s
             const style = shouldAnimate
-                ? { animation: `pulse-dot 3s infinite ${delay}`, opacity: 0.1 }
+                ? { animation: `pulse-dot 10s infinite ${delay}`, opacity: 0.1 }
                 : { opacity: 0.1 };
 
             dots.push(
