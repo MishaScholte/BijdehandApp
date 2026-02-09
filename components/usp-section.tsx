@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { ShieldUser, MapPin, Wallet } from "lucide-react";
+import { ShieldUser, MapPin, Wallet, Check } from "lucide-react";
 
 interface KnockoutCardProps {
     title: string;
@@ -23,7 +23,7 @@ const KnockoutCard = ({
         <div
             className={cn(
                 "group relative flex flex-col items-start justify-start p-4 md:p-6 h-full",
-                "bg-black rounded-[32px] md:rounded-[48px]",
+                "bg-white/[0.03] rounded-[32px] md:rounded-[48px]",
                 "border border-white/10", // Subtle glassy border
                 "transition-all duration-200 hover:border-white/20 hover:bg-white/[0.02]",
                 className
@@ -52,11 +52,14 @@ export function USPSection() {
         {
             title: "Private by design",
             description: (
-                <ul className="list-disc pl-5 space-y-1">
-                    <li>Geen accounts</li>
-                    <li>Geen cookies</li>
-                    <li>Geen reclame</li>
-                </ul>
+                <div className="space-y-2">
+                    {["Geen accounts", "Geen cookies", "Geen reclame"].map((item, i) => (
+                        <div key={i} className="flex items-center space-x-2">
+                            <Check className="w-4 h-4 text-green-500" />
+                            <span className="text-neutral-400 text-sm md:text-base">{item}</span>
+                        </div>
+                    ))}
+                </div>
             ),
             icon: ShieldUser,
             iconBgClass: "bg-gradient-to-br from-blue-400 to-blue-600 border-white/20",
