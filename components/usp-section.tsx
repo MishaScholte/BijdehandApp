@@ -40,8 +40,8 @@ const DotGridPattern = () => {
         <div
             className="absolute inset-0 pointer-events-none select-none"
             style={{
-                maskImage: "linear-gradient(to top right, white 0%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to top right, white 0%, transparent 100%)",
+                maskImage: "linear-gradient(to top right, transparent 0%, white 100%)",
+                WebkitMaskImage: "linear-gradient(to top right, transparent 0%, white 100%)",
             }}
         >
             <svg
