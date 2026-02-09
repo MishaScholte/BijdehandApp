@@ -12,7 +12,7 @@ const BlueprintGrid = () => {
             }}
         >
             <svg
-                className="absolute inset-0 w-full h-full opacity-[0.3]"
+                className="absolute inset-0 w-full h-full opacity-[0.6]"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <defs>
@@ -28,7 +28,7 @@ const BlueprintGrid = () => {
                             fill="none"
                             stroke="#60a5fa" // blue-400
                             strokeWidth="1"
-                            strokeOpacity="0.4"
+                            strokeOpacity="0.5"
                         />
                         {/* Sub Grid / Ruler Ticks - Top */}
                         <path
@@ -36,7 +36,7 @@ const BlueprintGrid = () => {
                             fill="none"
                             stroke="#60a5fa"
                             strokeWidth="1"
-                            strokeOpacity="0.3"
+                            strokeOpacity="0.4"
                         />
                         {/* Sub Grid / Ruler Ticks - Left */}
                         <path
@@ -44,7 +44,7 @@ const BlueprintGrid = () => {
                             fill="none"
                             stroke="#60a5fa"
                             strokeWidth="1"
-                            strokeOpacity="0.3"
+                            strokeOpacity="0.4"
                         />
                         {/* Center Crosshair */}
                         <path
@@ -52,7 +52,7 @@ const BlueprintGrid = () => {
                             fill="none"
                             stroke="#93c5fd" // blue-300
                             strokeWidth="1"
-                            strokeOpacity="0.5"
+                            strokeOpacity="0.6"
                         />
                         {/* Diagonal Hint (Technical Drawing feel) */}
                         <path
@@ -60,7 +60,7 @@ const BlueprintGrid = () => {
                             fill="none"
                             stroke="#3b82f6" // blue-500
                             strokeWidth="0.5"
-                            strokeOpacity="0.1"
+                            strokeOpacity="0.2"
                         />
                     </pattern>
                 </defs>
