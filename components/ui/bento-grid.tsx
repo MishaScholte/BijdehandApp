@@ -64,12 +64,14 @@ export const BentoFeatureCard = ({
     description,
     icon: Icon,
     iconColor = "text-primary-purple",
+    iconBgClass,
     className,
 }: {
     title: string;
     description: string;
     icon: React.ElementType;
     iconColor?: string;
+    iconBgClass?: string;
     className?: string;
 }) => {
     return (
@@ -78,7 +80,7 @@ export const BentoFeatureCard = ({
             description={description}
             header={
                 <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-start">
-                    <div className="w-24 h-24 flex items-center justify-center">
+                    <div className={cn("w-24 h-24 flex items-center justify-center rounded-2xl", iconBgClass)}>
                         <Icon className={cn("w-8 h-8", iconColor)} />
                     </div>
                 </div>

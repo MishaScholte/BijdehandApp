@@ -8,7 +8,8 @@ import {
   Wallet,
   Cloud,
   LayoutGrid,
-  EyeOff
+  EyeOff,
+  Shield
 } from "lucide-react";
 
 export default function Home() {
@@ -25,8 +26,9 @@ export default function Home() {
             <BentoFeatureCard
               title="Private by design"
               description="Jouw data is jouw data. Geen accounts. Geen reclame. Geen cookies."
-              icon={EyeOff}
-              iconColor="text-primary-purple"
+              icon={Shield}
+              iconColor="text-black"
+              iconBgClass="bg-gradient-to-br from-yellow-400 to-yellow-500 border border-white/20"
               className="md:col-span-2"
             />
 
