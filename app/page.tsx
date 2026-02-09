@@ -58,7 +58,9 @@ export default function Home() {
               title="Apple Wallet"
               description="Voeg je favoriete kaarten met één tik toe aan je Apple Wallet voor ultra-snelle toegang."
               icon={Wallet}
-              iconColor="text-blue-400"
+              iconColor="text-black"
+              iconBgClass="bg-gradient-to-br from-yellow-400 to-yellow-600 border border-white/20"
+              iconClassName="w-16 h-16"
               className="md:col-span-2"
             />
             <BentoNumberCard
