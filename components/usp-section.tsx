@@ -6,7 +6,7 @@ const IconDesignGuide = () => {
     return (
         <div className="absolute inset-0 z-20 pointer-events-none select-none flex items-center justify-center p-1">
             <svg
-                className="w-full h-full opacity-[0.3]"
+                className="w-full h-full"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@ const IconDesignGuide = () => {
                 <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="0.5" className="text-white/50" />
 
                 {/* Inner Circle (Core Icon Area) */}
-                <circle cx="50" cy="50" r="28" stroke="currentColor" strokeWidth="0.5" className="text-white/30" />
+                <circle cx="50" cy="50" r="28" stroke="currentColor" strokeWidth="0.5" className="text-white/40" />
 
                 {/* Crosslines */}
                 <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" strokeWidth="0.5" className="text-white/30" />
