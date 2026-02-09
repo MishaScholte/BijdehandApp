@@ -229,6 +229,6 @@ export function USPSection() {
                     ))}
                 </div>
             </div>
-        section>
-            );
+        </section>
+    );
 }
