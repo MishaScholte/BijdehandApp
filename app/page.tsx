@@ -28,7 +28,7 @@ export default function Home() {
               description="Jouw data is jouw data. Geen accounts. Geen reclame. Geen cookies."
               header={
                 <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-start">
-                  <div className="w-24 h-16 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center">
                     <EyeOff className="w-8 h-8 text-primary-purple" />
                   </div>
                 </div>
