@@ -8,8 +8,7 @@ import {
   Wallet,
   Cloud,
   LayoutGrid,
-  EyeOff,
-  ShieldCheck
+  EyeOff
 } from "lucide-react";
 
 export default function Home() {
