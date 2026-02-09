@@ -57,8 +57,8 @@ export function USPSection() {
         {
             title: "Widgets & Wallet",
             icon: Wallet,
-            iconBgClass: "bg-gradient-to-br from-yellow-400 to-yellow-600 border-white/20",
-            iconColor: "text-black",
+            iconBgClass: "bg-gradient-to-br from-orange-400 to-orange-600 border-white/20",
+            iconColor: "text-white",
         },
     ];
 
