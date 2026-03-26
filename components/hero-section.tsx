@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image"; // Keep for AppIcon if used, or standard usage elsewhere
+import { ExternalLink } from "lucide-react";
 import HeroImage from "@/app/assets/Hero.png";
 import HeroMobile from "@/app/assets/Hero-mobile.png";
 import HeroMobileSmall from "@/app/assets/Hero-mobile-small.png";
@@ -13,13 +12,44 @@ export function HeroSection() {
             <div className="p-4 max-w-6xl mx-auto relative z-10 w-full pt-12 md:pt-0 grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-8 items-center">
                 {/* Left Column: Text & CTA */}
                 <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                    <h1 className="text-5xl md:text-7xl font-bold leading-tight pb-1 text-white tracking-tight">
-                        Al je pasjes,<br />
+                    <h1 className="text-4xl md:text-6xl font-bold leading-[1.1] pb-1 text-white tracking-tight">
+                        Al je pasjes<br />
+                        en cadeaubonnen<br />
                         altijd <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-purple">Bijdehand</span>.
                     </h1>
                     <p className="mt-2 md:mt-6 font-normal text-xl md:text-2xl text-neutral-300 max-w-lg text-balance">
                         Eindelijk. Een app voor klantenpassen zonder reclame, accounts of cookies.
                     </p>
+
+                    <blockquote className="relative mt-6 md:mt-8 max-w-lg mx-auto md:mx-0 w-full text-left">
+                        <span
+                            className="pointer-events-none absolute left-0 top-1 md:top-2 select-none font-serif text-[3rem] md:text-[4rem] font-bold leading-[0.75] text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-purple opacity-90"
+                            aria-hidden
+                        >
+                            &ldquo;
+                        </span>
+                        <p className="relative z-10 pl-8 md:pl-10 pt-1 text-base md:text-lg italic text-neutral-400 leading-relaxed text-balance">
+                            Zo simpel als de app er uit ziet, zo geraffineerd is hij opgezet.
+                            <span
+                                className="ml-0.5 inline-block font-serif not-italic text-3xl md:text-4xl leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-purple align-[-0.2em]"
+                                aria-hidden
+                            >
+                                &rdquo;
+                            </span>
+                        </p>
+                        <footer className="relative z-10 mt-3 pl-8 md:pl-10 text-xs md:text-sm text-neutral-500 not-italic">
+                            Erwin Boogert ·{" "}
+                            <a
+                                href="https://www.emerce.nl/nieuws/uxontwerper-bouwt-alternatief-stocard-instant-succes"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 underline underline-offset-4 decoration-white/25 hover:text-neutral-300 hover:decoration-white/45 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-black/[0.96] rounded-sm"
+                            >
+                                Emerce
+                                <ExternalLink className="size-3 shrink-0 opacity-70" aria-hidden />
+                            </a>
+                        </footer>
+                    </blockquote>
 
                     <div className="flex justify-center md:justify-start mt-6 md:mt-10">
                         {/* Sleep Cycle Style Button - Simplified & Robust Implementation */}
