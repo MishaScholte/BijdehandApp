@@ -4,18 +4,33 @@ import { ExternalLink } from "lucide-react";
 import HeroImage from "@/app/assets/Hero.png";
 import HeroMobile from "@/app/assets/Hero-mobile.png";
 import HeroMobileSmall from "@/app/assets/Hero-mobile-small.png";
+import AwardImage from "@/app/assets/award.png";
 
 export function HeroSection() {
     return (
         <div className="min-h-0 md:min-h-[80vh] w-full rounded-md flex flex-col md:flex-row items-start md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden pb-12 md:pb-0">
 
-            <div className="p-4 max-w-6xl mx-auto relative z-10 w-full pt-12 md:pt-0 grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-8 items-center">
+            <div className="p-4 max-w-6xl mx-auto relative z-10 w-full pt-6 md:pt-0 grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-8 items-center">
                 {/* Left Column: Text & CTA */}
-                <div className="flex flex-col items-center text-center md:items-start md:text-left">
+                <div className="flex flex-col items-start text-left">
                     <h1 className="text-4xl md:text-6xl font-bold leading-[1.1] pb-1 text-white tracking-tight">
-                        Al je pasjes<br />
-                        en cadeaubonnen<br />
-                        altijd <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-purple">Bijdehand</span>.
+                        Al je{" "}
+                        <span className="relative inline-block">
+                            pasjes
+                            <svg className="absolute -bottom-1 left-0 w-full overflow-visible -z-10" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M0,5 Q50,0 100,5" stroke="#FACC15" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                            </svg>
+                        </span>
+                        <br />
+                        en{" "}
+                        <span className="relative inline-block">
+                            cadeaubonnen
+                            <svg className="absolute -bottom-1 left-0 w-full overflow-visible -z-10" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M0,5 Q50,0 100,5" stroke="#FACC15" strokeWidth="0.8" fill="none" strokeLinecap="round" />
+                            </svg>
+                        </span>
+                        <br />
+                        altijd <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-purple">Bijdehand</span>
                     </h1>
                     <p className="mt-2 md:mt-6 font-normal text-xl md:text-2xl text-neutral-300 max-w-lg text-balance">
                         Eindelijk. Een app voor klantenpassen zonder reclame, accounts of cookies.
@@ -51,7 +66,7 @@ export function HeroSection() {
                         </footer>
                     </blockquote>
 
-                    <div className="flex justify-center md:justify-start mt-6 md:mt-10">
+                    <div className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-6 mt-6 md:mt-10">
                         {/* Sleep Cycle Style Button - Simplified & Robust Implementation */}
                         <a
                             href="https://apps.apple.com/nl/app/bijdehand-klantenpassen/id6756604756"
@@ -81,6 +96,15 @@ export function HeroSection() {
                                 </span>
                             </button>
                         </a>
+
+                        {/* Award badge */}
+                        <img
+                            src={AwardImage.src}
+                            alt="5/5 Excellent"
+                            width={AwardImage.width}
+                            height={AwardImage.height}
+                            className="h-14 md:h-16 w-auto object-contain opacity-90"
+                        />
                     </div>
                 </div>
 
