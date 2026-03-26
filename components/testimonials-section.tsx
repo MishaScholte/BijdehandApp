@@ -134,9 +134,10 @@ export function TestimonialsSection() {
                                 }}
                             >
                                 {/* Mobiel: alle 3 reviews in 1 card met dotted dividers */}
-                                <div className="block md:hidden rounded-2xl border border-white/10 bg-white/[0.04] divide-y divide-dashed divide-white/10">
+                                <div className="group relative block md:hidden rounded-2xl border border-white/10 bg-white/[0.04] divide-y divide-dashed divide-white/10 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] overflow-hidden">
+                                    <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,144,255,0.06) 0%, transparent 100%)" }} />
                                     {loopedSlides[currentSlide].map((review) => (
-                                        <div key={review.id} className="px-4 py-4">
+                                        <div key={review.id} className="relative px-4 py-4">
                                             <TestimonialCard review={review} />
                                         </div>
                                     ))}
@@ -147,9 +148,12 @@ export function TestimonialsSection() {
                                     {loopedSlides[currentSlide].map((review) => (
                                         <div
                                             key={review.id}
-                                            className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-5"
+                                            className="group relative rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-5 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] overflow-hidden"
                                         >
-                                            <TestimonialCard review={review} />
+                                            <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,144,255,0.06) 0%, transparent 100%)" }} />
+                                            <div className="relative">
+                                                <TestimonialCard review={review} />
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
