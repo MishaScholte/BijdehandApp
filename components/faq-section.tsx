@@ -58,15 +58,15 @@ function FAQItem({ question, answer }: { question: string; answer: React.ReactNo
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="border-b border-white/10 last:border-0">
+        <div>
             <button
                 onClick={() => setOpen((o) => !o)}
                 aria-expanded={open}
                 className="flex w-full items-center justify-between gap-4 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-sm"
             >
                 <span className="text-base md:text-lg font-semibold text-white">{question}</span>
-                <span className="shrink-0 text-neutral-500">
-                    {open ? <Minus className="size-4" aria-hidden /> : <Plus className="size-4" aria-hidden />}
+                <span className="shrink-0 text-neutral-500" aria-hidden>
+                    {open ? <Minus className="size-4" /> : <Plus className="size-4" />}
                 </span>
             </button>
             <AnimatePresence initial={false}>
@@ -79,9 +79,9 @@ function FAQItem({ question, answer }: { question: string; answer: React.ReactNo
                         transition={{ duration: 0.25, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="pb-5 text-sm md:text-base text-neutral-400 leading-relaxed">
+                        <div className="pb-5 text-sm md:text-base text-neutral-400 leading-relaxed">
                             {answer}
-                        </p>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
