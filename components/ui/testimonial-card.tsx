@@ -29,8 +29,8 @@ export function TestimonialCard({ review }: { review: Review }) {
                         key={i}
                         className={
                             i < review.rating
-                                ? "text-yellow-400 text-base leading-none"
-                                : "text-neutral-600 text-base leading-none"
+                                ? "text-yellow-400 text-base md:text-lg leading-none"
+                                : "text-neutral-600 text-base md:text-lg leading-none"
                         }
                         aria-hidden
                     >
@@ -41,23 +41,23 @@ export function TestimonialCard({ review }: { review: Review }) {
 
             {/* Title */}
             {review.title ? (
-                <p className="text-sm font-semibold text-neutral-200 leading-snug">
+                <p className="text-sm md:text-base font-semibold text-neutral-200 leading-snug">
                     {review.title}
                 </p>
             ) : null}
 
             {/* Body */}
-            <p className="text-sm italic text-neutral-400 leading-relaxed line-clamp-2 md:line-clamp-3 flex-1">
+            <p className="text-sm md:text-base lg:text-lg italic text-neutral-400 leading-relaxed line-clamp-2 md:line-clamp-3 flex-1">
                 &ldquo;{review.body}&rdquo;
             </p>
 
             {/* Footer: name + date + link */}
             <div className="flex items-center justify-between gap-2 mt-auto pt-1">
                 <div className="flex flex-col gap-0.5 min-w-0">
-                    <span className="text-xs text-neutral-400 truncate">
+                    <span className="text-xs md:text-sm text-neutral-400 truncate">
                         {review.reviewerNickname}
                     </span>
-                    <span className="text-xs text-neutral-600">
+                    <span className="text-xs md:text-sm text-neutral-600">
                         {formatDate(review.createdDate)}
                     </span>
                 </div>
@@ -70,7 +70,7 @@ export function TestimonialCard({ review }: { review: Review }) {
                         aria-label="Bekijk review in de App Store"
                         className="shrink-0 text-neutral-600 hover:text-neutral-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-sm"
                     >
-                        <ExternalLink className="size-3.5" aria-hidden />
+                        <ExternalLink className="size-3.5 md:size-4" aria-hidden />
                     </a>
                 ) : null}
             </div>

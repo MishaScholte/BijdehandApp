@@ -101,8 +101,8 @@ export function TestimonialsSection() {
         <section className="pt-8 pb-16 md:pt-4 md:pb-24 relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 {/* Heading */}
-                <div className="mb-5 md:mb-7 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                <div className="mb-5 md:mb-7 pl-4 text-left md:pl-0 md:text-center">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
                         Duizenden blije gebruikers gingen je voor
                     </h2>
                 </div>
