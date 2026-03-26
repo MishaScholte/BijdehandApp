@@ -11,6 +11,10 @@ const faqs = [
         answer: "Ja. Bijdehand is volledig gratis te gebruiken. Er zitten geen addertjes onder het gras.",
     },
     {
+        question: "Wat kost Bijdehand jou?",
+        answer: "Amper iets. Vandaar dat het ook gratis is. Bijdehand is gemaakt vanuit een principekwestie.",
+    },
+    {
         question: "Waarom is Bijdehand gemaakt?",
         answer: "Onze favoriete klantenpassen app werd overgenomen door een tech gigant. Meteen ging de ervaring de prullenbak in. Accounts. Reclames. Laadtijden. Wij zijn van een mening dat dit allemaal niet nodig is voor iets eenvoudigs als klantenpassen. We pakken onze favoriete klantenpassen app weer terug door hem dan maar zelf te maken en we delen dit graag met jou.",
     },
@@ -30,6 +34,10 @@ const faqs = [
                 . We leggen je hier precies uit wat we doen.
             </>
         ),
+    },
+    {
+        question: "Komt er ook een Androidversie?",
+        answer: "Nee, die staat niet in de planning.",
     },
     {
         question: "Kan ik doneren?",
