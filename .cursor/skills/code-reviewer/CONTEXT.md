@@ -18,3 +18,6 @@
 - Carousel/animation: Framer Motion (already installed) — do not add Swiper, Embla, etc.
 - Icons: lucide-react + @tabler/icons-react — do not add other icon libraries
 - Utilities: `clsx`, `tailwind-merge` available via `lib/utils.ts`
+
+## Known intentional deviations — never flag these in review
+- **`hero-section.tsx` — `<a>` wrapping a `<button>` (mobile App Store CTA)**: The nested `<button>` inside `<a>` is intentional. The inner `<button>` provides the animated gradient border clipping (`overflow-hidden`, `p-[2px]`) that cannot be achieved on an `<a>` alone without breaking the visual effect. Do not suggest removing or replacing this structure.
