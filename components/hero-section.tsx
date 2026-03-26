@@ -86,7 +86,7 @@ export function HeroSection() {
 
                 {/* Right Column: Hero Image */}
                 <div className="flex justify-center md:justify-end relative w-full h-auto md:h-full mt-[-40px] md:mt-0">
-                    <div className="relative w-full md:w-auto h-auto md:h-[874px] transition-all duration-500 flex items-start md:items-center justify-center">
+                    <div className="relative w-full md:w-auto h-auto md:h-[560px] transition-all duration-500 flex items-start md:items-center justify-center">
                         <div className="relative w-full h-full flex items-center justify-center">
                             <picture>
                                 <source media="(max-width: 480px)" srcSet={`${HeroMobileSmall.src} 1x, ${HeroMobile.src} 2x`} />
@@ -96,7 +96,7 @@ export function HeroSection() {
                                     alt="Bijdehand App Hero"
                                     width={2721}
                                     height={2622}
-                                    className="object-contain w-full h-auto md:w-auto md:h-full max-h-[600px] md:max-h-[874px]"
+                                    className="object-contain w-full h-auto md:w-auto md:h-full max-h-[600px] md:max-h-[560px]"
                                     loading="eager"
                                 />
                             </picture>

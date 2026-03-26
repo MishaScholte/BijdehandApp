@@ -14,6 +14,31 @@ const reviews = (reviewsData as Review[]).slice(
 );
 const DOT_WINDOW = 5;
 
+// Style per dot position (0 = leftmost, 2 = active/center, 4 = rightmost)
+// Dots 2, 3, 4 have the same height (h-2); dot 3 (active) is wider.
+// Dots 1 and 5 are smaller.
+const DOT_POSITION_STYLES = [
+    "w-1.5 h-1.5 bg-white/20",
+    "w-2 h-2 bg-white/30",
+    "w-5 h-2 bg-gradient-to-r from-primary via-primary-purple to-yellow-400",
+    "w-2 h-2 bg-white/30",
+    "w-1.5 h-1.5 bg-white/20",
+] as const;
+
+const dotVariants = {
+    initial: (dir: number) => ({
+        x: dir > 0 ? 24 : -24,
+        opacity: 0,
+        scale: 0.5,
+    }),
+    animate: { x: 0, opacity: 1, scale: 1 },
+    exit: (dir: number) => ({
+        x: dir > 0 ? -24 : 24,
+        opacity: 0,
+        scale: 0.5,
+    }),
+};
+
 // Split reviews into slides of CARDS_PER_SLIDE
 function chunkArray<T>(arr: T[], size: number): T[][] {
     const result: T[][] = [];
@@ -27,10 +52,6 @@ const slides = chunkArray(reviews, CARDS_PER_SLIDE);
 // Duplicate for infinite loop feel
 const loopedSlides = [...slides, ...slides];
 
-function clamp(value: number, min: number, max: number) {
-    return Math.min(Math.max(value, min), max);
-}
-
 export function TestimonialsSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [direction, setDirection] = useState<1 | -1>(1);
@@ -38,6 +59,8 @@ export function TestimonialsSection() {
 
     const totalSlides = loopedSlides.length;
     const realSlideCount = slides.length;
+    const realActive = currentSlide % realSlideCount;
+    const halfWindow = Math.floor(DOT_WINDOW / 2); // 2
 
     const goTo = useCallback(
         (next: number, dir: 1 | -1) => {
@@ -59,17 +82,14 @@ export function TestimonialsSection() {
     const next = () => goTo(currentSlide + 1, 1);
     const prev = () => goTo(currentSlide - 1, -1);
 
-    // Schuivend dot-venster van DOT_WINDOW
-    const dotWindowStart = clamp(
-        currentSlide % realSlideCount - Math.floor(DOT_WINDOW / 2),
-        0,
-        Math.max(0, realSlideCount - DOT_WINDOW)
-    );
+    // Active dot is always at position 2 (center of 5)
     const visibleDots = Array.from(
         { length: Math.min(DOT_WINDOW, realSlideCount) },
-        (_, i) => dotWindowStart + i
+        (_, i) => {
+            const offset = i - halfWindow; // -2, -1, 0, 1, 2
+            return ((realActive + offset) % realSlideCount + realSlideCount) % realSlideCount;
+        }
     );
-    const activeDotInWindow = currentSlide % realSlideCount;
 
     const variants = {
         enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
@@ -78,16 +98,13 @@ export function TestimonialsSection() {
     };
 
     return (
-        <section className="py-16 md:py-24 relative overflow-hidden">
+        <section className="pt-8 pb-16 md:pt-4 md:pb-24 relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 {/* Heading */}
                 <div className="mb-5 md:mb-7 text-center">
                     <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
                         Duizenden blije gebruikers gingen je voor
                     </h2>
-                    <p className="mt-2 text-neutral-500 text-sm">
-                        Dit is wat ze zeggen over Bijdehand
-                    </p>
                 </div>
 
                 {/* Carousel */}
@@ -157,23 +174,36 @@ export function TestimonialsSection() {
                     </button>
                 </div>
 
-                {/* Schuivende dots */}
-                <div className="flex items-center justify-center gap-2 mt-8" aria-hidden>
-                    {visibleDots.map((dotIndex) => (
-                        <button
-                            key={dotIndex}
-                            onClick={() =>
-                                goTo(dotIndex, dotIndex > activeDotInWindow ? 1 : -1)
-                            }
-                            aria-label={`Ga naar slide ${dotIndex + 1}`}
-                            className={[
-                                "rounded-full transition-all duration-300",
-                                dotIndex === activeDotInWindow
-                                    ? "w-4 h-1.5 bg-white"
-                                    : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40",
-                            ].join(" ")}
-                        />
-                    ))}
+                {/* Dots — active always centered, animated slide-in/out */}
+                <div
+                    className="flex items-center justify-center gap-2 mt-8"
+                    role="group"
+                    aria-label="Navigatie testimonials"
+                >
+                    <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+                        {visibleDots.map((dotSlideIndex, position) => (
+                            <motion.button
+                                key={dotSlideIndex}
+                                layout
+                                custom={direction}
+                                variants={dotVariants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exit"
+                                transition={{ duration: 0.25, ease: "easeInOut" }}
+                                onClick={() => {
+                                    const delta = position - halfWindow;
+                                    if (delta === 0) return;
+                                    goTo(currentSlide + delta, delta > 0 ? 1 : -1);
+                                }}
+                                aria-label={`Ga naar slide ${dotSlideIndex + 1}`}
+                                className={[
+                                    "rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30",
+                                    DOT_POSITION_STYLES[position],
+                                ].join(" ")}
+                            />
+                        ))}
+                    </AnimatePresence>
                 </div>
             </div>
         </section>
