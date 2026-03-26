@@ -8,30 +8,26 @@ import { FadeUp } from "@/components/ui/fade-up";
 const faqs = [
     {
         question: "Is Bijdehand echt gratis?",
-        answer: "Ja. Bijdehand is volledig gratis te gebruiken. Er zitten geen addertjes onder het gras.",
-    },
-    {
-        question: "Wat kost Bijdehand jou?",
-        answer: "Amper iets. Vandaar dat het ook gratis is. Bijdehand is gemaakt vanuit een principekwestie.",
+        answer: "Ja. Bijdehand is volledig gratis te gebruiken omdat het weinig kost om te maken. Er zitten geen addertjes onder het gras. Bijdehand is gemaakt vanuit een principekwestie.",
     },
     {
         question: "Waarom is Bijdehand gemaakt?",
-        answer: "Onze favoriete klantenpassen app werd overgenomen door een tech gigant. Meteen ging de ervaring de prullenbak in. Accounts. Reclames. Laadtijden. Wij zijn van een mening dat dit allemaal niet nodig is voor iets eenvoudigs als klantenpassen. We pakken onze favoriete klantenpassen app weer terug door hem dan maar zelf te maken en we delen dit graag met jou.",
+        answer: "Een tech gigant nam Stocard over. Meteen ging de privacy en de ervaring de prullenbak in. Accounts. Reclames. Laadtijden. We pakken onze privacy terug door het zelf te maken en delen dit graag met jou.",
     },
     {
         question: "Verkopen jullie gebruiksgegevens?",
         answer: (
             <>
-                Nee. Sterker nog: we hebben helemaal geen gegevens. Er wordt niks centraal opgeslagen. We hebben geen analytics. We hebben geen flauw idee wat jij doet in Bijdehand. En dat vinden we prima zo. Je kunt de app volledig offline gebruiken als je dat wil en je verliest geen functionaliteit.{" "}
+                Nee. En dat kan ook niet. Want er zijn geen gegevens om te verkopen. Er is geen analytics. Er is geen tracking. Er is geen cookie. Er is geen flauw idee wat jij doet in Bijdehand. En dat is prima! 
+                {" "}
                 <a
                     href="https://mishascholte.github.io/BijdehandApp/privacy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline underline-offset-4 decoration-white/25 hover:text-neutral-200 hover:decoration-white/50 transition-colors"
                 >
-                    Lees meer over het privacybeleid
+                    Lees meer over het privacybeleid.
                 </a>
-                . We leggen je hier precies uit wat we doen.
             </>
         ),
     },
@@ -43,7 +39,7 @@ const faqs = [
         question: "Kan ik doneren?",
         answer: (
             <>
-                Je maakt ons ontzettend blij als je je vrienden vertelt over Bijdehand. Dat is alles wat we vragen! Wil je toch wat geven? Dan maak je ons nóg blijer door een donatie te doen aan{" "}
+                Vertel je vrienden over Bijdehand. Dat is alles! Wil je toch wat geven? Doneer wat aan{" "}
                 <a
                     href="https://kika.nl/"
                     target="_blank"
