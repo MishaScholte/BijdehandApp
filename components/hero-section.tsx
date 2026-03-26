@@ -28,7 +28,7 @@ export function HeroSection() {
                         >
                             &ldquo;
                         </span>
-                        <p className="relative z-10 pl-8 md:pl-10 pt-1 text-base md:text-lg italic text-neutral-400 leading-relaxed text-balance">
+                        <p className="relative z-10 pl-7 md:pl-9 pt-1 text-base md:text-lg italic text-neutral-400 leading-relaxed text-balance">
                             Zo simpel als de app er uit ziet, zo geraffineerd is hij opgezet.
                             <span
                                 className="ml-0.5 inline-block font-serif not-italic text-3xl md:text-4xl leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-purple align-[-0.2em]"
@@ -37,7 +37,7 @@ export function HeroSection() {
                                 &rdquo;
                             </span>
                         </p>
-                        <footer className="relative z-10 mt-3 pl-8 md:pl-10 text-xs md:text-sm text-neutral-500 not-italic">
+                        <footer className="relative z-10 mt-3 pl-7 md:pl-9 text-xs md:text-sm text-neutral-500 not-italic">
                             Erwin Boogert ·{" "}
                             <a
                                 href="https://www.emerce.nl/nieuws/uxontwerper-bouwt-alternatief-stocard-instant-succes"
