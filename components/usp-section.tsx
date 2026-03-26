@@ -1,224 +1,47 @@
-import React from "react";
 import { cn } from "@/lib/utils";
-import { ShieldUser, MapPin, Wallet, Check } from "lucide-react";
+import {
+    ShieldUser,
+    MapPin,
+    Wallet,
+    IdCard,
+    Gift,
+    LayoutGrid,
+    Share,
+    DatabaseBackup,
+    FastForward,
+} from "lucide-react";
 
-// Add keyframes style
-const KeyframesStyle = () => (
-    <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes pulse-dot {
-            0% { opacity: 0.1; }
-            10% { opacity: 1; }
-            20%, 100% { opacity: 0.1; }
-        }
-    `}} />
-);
-
-const IconDesignGuide = () => {
-    return (
-        <div className="absolute inset-0 z-20 pointer-events-none select-none flex items-center justify-center p-1">
-            <svg
-                className="w-full h-full"
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                {/* Large Circle (Safe Area) */}
-                <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="0.5" className="text-white/50" />
-
-                {/* Inner Circle (Core Icon Area) */}
-                <circle cx="50" cy="50" r="28" stroke="currentColor" strokeWidth="0.5" className="text-white/40" />
-
-                {/* Crosslines */}
-                <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" strokeWidth="0.5" className="text-white/30" />
-                <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" strokeWidth="0.5" className="text-white/30" />
-
-                {/* Diagonals */}
-                <line x1="15" y1="15" x2="85" y2="85" stroke="currentColor" strokeWidth="0.5" className="text-white/20" />
-                <line x1="15" y1="85" x2="85" y2="15" stroke="currentColor" strokeWidth="0.5" className="text-white/20" />
-
-                {/* Corner Curves (Squircle hints) */}
-                <path d="M 0 50 Q 0 0 50 0" stroke="currentColor" strokeWidth="0.5" className="text-white/10" fill="none" />
-                <path d="M 100 50 Q 100 0 50 0" stroke="currentColor" strokeWidth="0.5" className="text-white/10" fill="none" />
-                <path d="M 100 50 Q 100 100 50 100" stroke="currentColor" strokeWidth="0.5" className="text-white/10" fill="none" />
-                <path d="M 0 50 Q 0 100 50 100" stroke="currentColor" strokeWidth="0.5" className="text-white/10" fill="none" />
-            </svg>
-        </div>
-    );
-};
-
-const DotGridPattern = () => {
-    // Generate a grid of dots
-    const dots = [];
-    const rows = 20; // Enough to cover typical card size
-    const cols = 20;
-
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
-            // Randomly select some dots to animate - very few for calm effect
-            const shouldAnimate = Math.random() < 0.02; // 2% chance (~8 dots out of 400)
-            const delay = Math.random() * 10 + "s"; // Random delay up to 10s
-            const style = shouldAnimate
-                ? { animation: `pulse-dot 10s infinite ${delay}`, opacity: 0.1 }
-                : { opacity: 0.1 };
-
-            dots.push(
-                <circle
-                    key={`${i}-${j}`}
-                    cx={j * 20 + 2}
-                    cy={i * 20 + 2}
-                    r="1.5"
-                    className="fill-white"
-                    style={style}
-                />
-            );
-        }
-    }
-
-    return (
-        <div
-            className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-            style={{
-                maskImage: "linear-gradient(to top right, transparent 0%, white 100%)",
-                WebkitMaskImage: "linear-gradient(to top right, transparent 0%, white 100%)",
-            }}
-        >
-            <KeyframesStyle />
-            <svg
-                className="absolute inset-0 w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                {dots}
-            </svg>
-        </div>
-    );
-};
-
-const RoundedSquareGridPattern = () => {
-    // Create a playful widget-style grid with varying sizes
-    const widgets: React.ReactNode[] = [];
-    const gridSize = 28; // Base unit size
-    const cornerRadius = 5;
-    const opacity = 0.08; // Subtle opacity
-
-    // Define an organic widget layout pattern (repeating 140x140 area)
-    const widgetLayout = [
-        // Row 1
-        { x: 0, y: 0, w: 1, h: 1 },
-        { x: 1, y: 0, w: 2, h: 1 },
-        { x: 3, y: 0, w: 1, h: 2 },
-
-        // Row 2
-        { x: 0, y: 1, w: 2, h: 2 },
-        { x: 2, y: 1, w: 1, h: 1 },
-
-        // Row 3
-        { x: 2, y: 2, w: 1, h: 1 },
-        { x: 3, y: 2, w: 1, h: 1 },
-
-        // Row 4
-        { x: 0, y: 3, w: 1, h: 1 },
-        { x: 1, y: 3, w: 1, h: 2 },
-        { x: 2, y: 3, w: 2, h: 1 },
-
-        // Row 5
-        { x: 0, y: 4, w: 2, h: 1 },
-        { x: 2, y: 4, w: 1, h: 1 },
-        { x: 3, y: 4, w: 1, h: 1 },
-    ];
-
-    widgetLayout.forEach((widget, idx) => {
-        widgets.push(
-            <rect
-                key={idx}
-                x={widget.x * gridSize + 2}
-                y={widget.y * gridSize + 2}
-                width={widget.w * gridSize - 4}
-                height={widget.h * gridSize - 4}
-                rx={cornerRadius}
-                ry={cornerRadius}
-                stroke="white"
-                strokeWidth="1.5"
-                fill="none"
-                strokeOpacity={opacity}
-            />
-        );
-    });
-
-    return (
-        <div
-            className="absolute inset-0 pointer-events-none select-none"
-            style={{
-                maskImage: "linear-gradient(to top right, transparent 0%, white 100%)",
-                WebkitMaskImage: "linear-gradient(to top right, transparent 0%, white 100%)",
-            }}
-        >
-            <svg
-                className="absolute inset-0 w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <pattern
-                    id="rounded-square-grid"
-                    x="0"
-                    y="0"
-                    width="140"
-                    height="140"
-                    patternUnits="userSpaceOnUse"
-                >
-                    {widgets}
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#rounded-square-grid)" />
-            </svg>
-        </div>
-    );
-};
-
-interface KnockoutCardProps {
+interface USPCardProps {
     title: string;
     description?: string | React.ReactNode;
     icon: React.ElementType;
     iconBgClass?: string;
     iconColor?: string;
     className?: string;
-    iconOverlay?: React.ReactNode;
-    background?: React.ReactNode;
 }
 
-const KnockoutCard = ({
+const USPCard = ({
     title,
     description,
     icon: Icon,
     iconBgClass,
     iconColor,
     className,
-    iconOverlay,
-    background,
-}: KnockoutCardProps) => {
+}: USPCardProps) => {
     return (
-        <div
-            className={cn(
-                "group relative flex flex-col items-start justify-start p-4 md:p-6 h-full overflow-hidden",
-                "bg-white/[0.03] rounded-[32px] md:rounded-[40px]",
-                "border border-white/10", // Subtle glassy border
-                "transition-all duration-200 hover:border-white/20 hover:bg-white/[0.02]",
-                className
-            )}
-        >
-            {background}
-
+        <div className={cn("flex flex-col items-start p-4 md:p-6", className)}>
             {/* Icon */}
-            <div className={cn("relative z-10 mb-4 p-4 rounded-2xl border overflow-hidden", iconBgClass)}>
-                <Icon className={cn("relative z-10 w-6 h-6 md:w-10 md:h-10", iconColor || "text-neutral-200")} />
-                {iconOverlay}
+            <div className={cn("mb-4 p-4 rounded-2xl border overflow-hidden", iconBgClass)}>
+                <Icon className={cn("w-6 h-6 md:w-10 md:h-10", iconColor || "text-neutral-200")} />
             </div>
 
             {/* Title */}
-            <h3 className="relative z-10 text-xl md:text-2xl font-bold text-white text-left mb-2">
+            <h3 className="text-xl md:text-2xl font-bold text-white text-left mb-2">
                 {title}
             </h3>
 
             {/* Description */}
-            <div className="relative z-10 text-neutral-400 text-sm md:text-base text-left font-normal">
+            <div className="text-neutral-400 text-sm md:text-base text-left font-normal">
                 {description}
             </div>
         </div>
@@ -229,20 +52,24 @@ export function USPSection() {
     const features = [
         {
             title: "Private by design",
-            description: (
-                <div className="flex flex-wrap gap-3 md:flex-col md:gap-2">
-                    {["Geen accounts", "Geen cookies", "Geen reclame"].map((item, i) => (
-                        <div key={i} className="flex items-center space-x-1">
-                            <Check className="w-4 h-4 text-green-500" />
-                            <span className="text-neutral-400 text-sm md:text-base">{item}</span>
-                        </div>
-                    ))}
-                </div>
-            ),
+            description: "Je wil niet dat iemand in je portemonnee kijkt. Bijdehand heeft geen accounts, geen cookies, geen tracking.",
             icon: ShieldUser,
             iconBgClass: "bg-gradient-to-br from-blue-400 to-blue-600 border-white/20",
             iconColor: "text-white",
-            iconOverlay: <IconDesignGuide />,
+        },
+        {
+            title: "Klantenpassen",
+            description: "Alle klantenpassen kunnen worden opgeslagen zonder beperking. Alle type barcodes worden ondersteund. Ook QR.",
+            icon: IdCard,
+            iconBgClass: "bg-gradient-to-br from-cyan-400 to-cyan-600 border-white/20",
+            iconColor: "text-white",
+        },
+        {
+            title: "Cadeaubonnen",
+            description: "Sla je cadeaubonnen op en voorkom dat ze verlopen. Bijdehand stuurt je een melding als het bijna zo ver is, zodat jij niet misgrijpt.",
+            icon: Gift,
+            iconBgClass: "bg-gradient-to-br from-rose-400 to-rose-600 border-white/20",
+            iconColor: "text-white",
         },
         {
             title: "Slimme locaties",
@@ -250,32 +77,62 @@ export function USPSection() {
             icon: MapPin,
             iconBgClass: "bg-gradient-to-br from-purple-400 to-purple-600 border-white/20",
             iconColor: "text-white",
-            background: <DotGridPattern />,
         },
         {
-            title: "Widgets & Wallet",
-            description: "Voeg je favoriete kaarten toe aan je startscherm of aan je Wallet. Zo heb je altijd de snelste kaarten direct bij de hand.",
-            icon: Wallet,
-            iconBgClass: "bg-gradient-to-br from-orange-400 to-orange-600 border-white/20",
+            title: "Widgets",
+            description: "Voeg je favoriete kaarten toe aan je startscherm. Met keuze uit 4 is er altijd wel een die precies past bij jou wensen.",
+            icon: LayoutGrid,
+            iconBgClass: "bg-gradient-to-br from-amber-400 to-amber-600 border-white/20",
             iconColor: "text-white",
-            background: <RoundedSquareGridPattern />,
         },
+        {
+            title: "Wallet",
+            description: "Ontgrendel de kracht van iOS en voeg passen toe aan je Wallet. Combineer met Slimme Locaties en ze verschijnen op het juiste moment op je vergrendelde scherm.",
+            icon: Wallet,
+            iconBgClass: "bg-gradient-to-br from-indigo-400 to-indigo-600 border-white/20",
+            iconColor: "text-white",
+        },
+        {
+            title: "Delen",
+            description: "Deel je pasje of cadeaubon met familie of vrienden. Eenvoudig en veilig. Geen centrale opslag. Je geheime codes blijven bij jou en met wie je het deelt.",
+            icon: Share,
+            iconBgClass: "bg-gradient-to-br from-emerald-400 to-emerald-600 border-white/20",
+            iconColor: "text-white",
+        },
+        {
+            title: "iCloud Backup",
+            description: "Dankzij iCloud Backup herstel je eenvoudig je gegevens mocht je een nieuw toestel krijgen.",
+            icon: DatabaseBackup,
+            iconBgClass: "bg-gradient-to-br from-sky-400 to-sky-600 border-white/20",
+            iconColor: "text-white",
+        },
+        {
+            title: "Eenvoudig overstappen",
+            description: "Stap in 1 minuut over door een schermopname te maken van je huidige app en die te importeren. Bijdehand regelt de rest.",
+            icon: FastForward,
+            iconBgClass: "bg-gradient-to-br from-violet-400 to-violet-600 border-white/20",
+            iconColor: "text-white",
+        },
+
     ];
 
     return (
         <section className="py-10 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
+                <div className="mb-8 md:mb-12 text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                        Dit is waarom ze kiezen voor Bijdehand
+                    </h2>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                     {features.map((feature, index) => (
-                        <KnockoutCard
+                        <USPCard
                             key={index}
                             title={feature.title}
                             description={feature.description}
                             icon={feature.icon}
                             iconBgClass={feature.iconBgClass}
                             iconColor={feature.iconColor}
-                            iconOverlay={feature.iconOverlay}
-                            background={feature.background}
                         />
                     ))}
                 </div>
