@@ -1,7 +1,7 @@
 "use client";
 
 import { SquareCheckBig } from "lucide-react";
-import HeroImage from "@/app/assets/Hero.png";
+import HeroImage from "@/app/assets/Hero.webp";
 import HeroMobile from "@/app/assets/Hero-mobile.png";
 import HeroMobileSmall from "@/app/assets/Hero-mobile-small.png";
 import AwardImage from "@/app/assets/award.png";
@@ -97,10 +97,11 @@ export function HeroSection() {
                                 <img
                                     src={HeroImage.src}
                                     alt="Bijdehand App Hero"
-                                    width={2721}
-                                    height={2622}
+                                    width={1400}
+                                    height={1348}
                                     className="object-contain w-full h-auto md:w-auto md:h-full max-h-[600px] md:max-h-[560px]"
                                     loading="eager"
+                                    fetchPriority="high"
                                 />
                             </picture>
                         </div>

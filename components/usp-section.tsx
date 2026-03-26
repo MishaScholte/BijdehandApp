@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { FadeUp } from "@/components/ui/fade-up";
 import {
     ShieldUser,
     MapPin,
@@ -127,21 +128,24 @@ export function USPSection() {
     return (
         <section className="py-10 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="mb-8 md:mb-12 text-left md:text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
-                        Dit is waarom ze kiezen voor Bijdehand
-                    </h2>
-                </div>
+                <FadeUp>
+                    <div className="mb-8 md:mb-12 text-left md:text-center">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
+                            Dit is waarom ze kiezen voor Bijdehand
+                        </h2>
+                    </div>
+                </FadeUp>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 md:gap-x-10 md:gap-y-16">
                     {features.map((feature, index) => (
-                        <USPCard
-                            key={index}
-                            title={feature.title}
-                            description={feature.description}
-                            icon={feature.icon}
-                            iconBgClass={feature.iconBgClass}
-                            iconColor={feature.iconColor}
-                        />
+                        <FadeUp key={index} delay={0.05 * (index % 3)}>
+                            <USPCard
+                                title={feature.title}
+                                description={feature.description}
+                                icon={feature.icon}
+                                iconBgClass={feature.iconBgClass}
+                                iconColor={feature.iconColor}
+                            />
+                        </FadeUp>
                     ))}
                 </div>
             </div>

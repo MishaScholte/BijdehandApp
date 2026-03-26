@@ -1,18 +1,22 @@
 import { ExternalLink } from "lucide-react";
 import EmerceLogo from "@/app/assets/emerce.svg";
+import { FadeUp } from "@/components/ui/fade-up";
 
 export function MediaSection() {
     return (
         <section className="py-16 md:py-24 relative overflow-hidden">
             <div className="max-w-3xl mx-auto px-4 md:px-8">
                 {/* Section label */}
-                <div className="mb-8 md:mb-10 text-left md:text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
-                        In de media
-                    </h2>
-                </div>
+                <FadeUp>
+                    <div className="mb-8 md:mb-10 text-left md:text-center">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
+                            In de media
+                        </h2>
+                    </div>
+                </FadeUp>
 
                 {/* Glass card */}
+                <FadeUp delay={0.1}>
                 <a
                     href="https://www.emerce.nl/nieuws/uxontwerper-bouwt-alternatief-stocard-instant-succes"
                     target="_blank"
@@ -63,6 +67,7 @@ export function MediaSection() {
                         — Erwin Boogert, 26 maart 2026
                     </p>
                 </a>
+                </FadeUp>
             </div>
         </section>
     );

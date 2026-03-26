@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TestimonialCard, type Review } from "@/components/ui/testimonial-card";
+import { FadeUp } from "@/components/ui/fade-up";
 import reviewsData from "@/app/content/reviews.json";
 
 // Trim to the nearest multiple of CARDS_PER_SLIDE so every slide is full
@@ -101,13 +102,16 @@ export function TestimonialsSection() {
         <section className="pt-8 pb-16 md:pt-4 md:pb-24 relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 {/* Heading */}
-                <div className="mb-5 md:mb-7 pl-4 text-left md:pl-0 md:text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
-                        Duizenden blije gebruikers gingen je voor
-                    </h2>
-                </div>
+                <FadeUp>
+                    <div className="mb-5 md:mb-7 pl-4 text-left md:pl-0 md:text-center">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
+                            Duizenden blije gebruikers gingen je voor
+                        </h2>
+                    </div>
+                </FadeUp>
 
                 {/* Carousel */}
+                <FadeUp delay={0.1}>
                 <div className="relative">
                     <div className="overflow-hidden">
                         <AnimatePresence
@@ -177,6 +181,7 @@ export function TestimonialsSection() {
                         <ChevronRight className="size-5" aria-hidden />
                     </button>
                 </div>
+                </FadeUp>
 
                 {/* Dots — active always centered, animated slide-in/out */}
                 <div

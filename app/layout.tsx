@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import HeroWebp from "@/app/assets/Hero.webp";
 
 export const metadata: Metadata = {
   title: "Bijdehand - Premium Privacy Wallet voor iOS",
@@ -13,6 +14,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className="dark">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href={HeroWebp.src}
+          type="image/webp"
+          media="(min-width: 769px)"
+        />
+      </head>
       <body
         className="font-sans antialiased bg-neutral-950 text-white selection:bg-primary/30"
       >
