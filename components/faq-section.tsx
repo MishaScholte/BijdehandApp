@@ -15,10 +15,10 @@ const faqs = [
         answer: "Een tech gigant nam Stocard over. Meteen ging de privacy en de ervaring de prullenbak in. Accounts. Reclames. Laadtijden. We pakken onze privacy terug door het zelf te maken en delen dit graag met jou.",
     },
     {
-        question: "Verkopen jullie gebruiksgegevens?",
+        question: "Wat wordt er gedaan met gebruiksgegevens?",
         answer: (
             <>
-                Nee. En dat kan ook niet. Want er zijn geen gegevens om te verkopen. Er is geen analytics. Er is geen tracking. Er is geen cookie. Er is geen flauw idee wat jij doet in Bijdehand. En dat is prima! 
+                Helemaal niets. Dat kan ook niet, want er wordt niets gemeten. Er is geen analytics. Er is geen tracking. Geen cookies. Geen account. Wat jij in Bijdehand doet is alleen jouw zaak.! 
                 {" "}
                 <a
                     href="https://mishascholte.github.io/BijdehandApp/privacy"
