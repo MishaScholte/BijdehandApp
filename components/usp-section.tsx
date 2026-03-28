@@ -68,7 +68,7 @@ export function USPSection() {
         },
         {
             title: "Klantenpassen",
-            description: "Alle klantenpassen kunnen worden opgeslagen zonder beperking. Alle type barcodes worden ondersteund. Ook QR.",
+            description: "Sla alle soorten klantenpassen op zonder beperking. Alle type barcodes worden ondersteund. Ook QR.",
             icon: IdCard,
             iconBgClass: "bg-gradient-to-br from-cyan-400 to-cyan-600",
             iconColor: "text-white",
