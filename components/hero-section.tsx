@@ -14,9 +14,9 @@ export function HeroSection() {
     return (
         <div className="min-h-0 md:min-h-[80vh] w-full rounded-md flex flex-col md:flex-row items-start md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden pb-12 md:pb-0">
 
-            <div className="p-4 max-w-6xl mx-auto relative z-10 w-full pt-6 md:pt-0 grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-8 items-center">
+            <div className="p-8 max-w-6xl mx-auto relative z-10 w-full md:p-4 md:pt-0 grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-8 items-center">
                 {/* Left Column: Text & CTA */}
-                <div className="flex flex-col items-start text-left">
+                <div className="flex min-w-0 w-full flex-col items-start text-left">
                     <h1 className="text-4xl md:text-6xl font-bold leading-[1.1] pb-1 text-white tracking-tight">
                         Al je{" "}
                         <span className="relative inline-block">
@@ -40,10 +40,24 @@ export function HeroSection() {
                         Eindelijk. Een app voor klantenpassen zonder reclame, accounts of cookies.
                     </p>
 
+                    {/* Mobiel: ratings boven bullet list; schalen binnen content (p-8 / 32px) zonder viewport-overflow */}
+                    <div className="mt-4 md:mt-5 grid w-full min-w-0 max-w-lg grid-cols-2 gap-3 md:hidden">
+                        <img
+                            src={RatingAppStore.src ?? RatingAppStore}
+                            alt="App Store rating"
+                            className="h-auto max-h-[80px] w-full min-w-0 justify-self-center object-contain opacity-90"
+                        />
+                        <img
+                            src={RatingEmerce.src ?? RatingEmerce}
+                            alt="Emerce rating"
+                            className="h-auto max-h-[80px] w-full min-w-0 justify-self-center object-contain opacity-90"
+                        />
+                    </div>
+
                     <ul className="mt-4 md:mt-5 max-w-lg space-y-2.5 text-neutral-200" aria-label="Belangrijkste voordelen">
                         {["Bliksemsnel", "Gratis", "In 1 minuut overgestapt"].map((label) => (
                             <li key={label} className="flex items-center gap-3">
-                                <SquareCheckBig className="size-7 shrink-0 text-emerald-400" aria-hidden />
+                                <SquareCheckBig className="size-5 shrink-0 text-emerald-400" aria-hidden />
                                 <span className="text-base md:text-lg font-medium">{label}</span>
                             </li>
                         ))}
@@ -106,17 +120,17 @@ export function HeroSection() {
                             </span>
                         </a>
 
-                        {/* Rating badges */}
-                        <div className="flex flex-col items-center md:items-start gap-8">
+                        {/* Desktop: ratings verticaal naast QR */}
+                        <div className="hidden md:flex flex-col items-start gap-8">
                             <img
                                 src={RatingAppStore.src ?? RatingAppStore}
                                 alt="App Store rating"
-                                className="h-20 w-auto object-contain opacity-90"
+                                className="h-[80px] w-auto object-contain opacity-90"
                             />
                             <img
                                 src={RatingEmerce.src ?? RatingEmerce}
                                 alt="Emerce rating"
-                                className="h-20 w-auto object-contain opacity-90"
+                                className="h-[80px] w-auto object-contain opacity-90"
                             />
                         </div>
                     </div>
