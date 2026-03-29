@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { FadeUp } from "@/components/ui/fade-up";
@@ -20,14 +21,12 @@ const faqs = [
             <>
                 Helemaal niets. Dat kan ook niet, want er wordt niets gemeten. Er is geen analytics. Er is geen tracking. Geen cookies. Geen account. Wat jij in Bijdehand doet is alleen jouw zaak.! 
                 {" "}
-                <a
-                    href="https://mishascholte.github.io/BijdehandApp/privacy"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <Link
+                    href="/privacy"
                     className="underline underline-offset-4 decoration-white/25 hover:text-neutral-200 hover:decoration-white/50 transition-colors"
                 >
                     Lees meer over het privacybeleid.
-                </a>
+                </Link>
             </>
         ),
     },
